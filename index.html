@@ -60,7 +60,7 @@ function finish(){document.body.classList.remove('playing');clearTouch();$('devi
 // Code-native pixel animals: same anchor, footprint and animation inputs as the original characters.
 function drawAnimal(g,id,x,y,scale=2,walk=0,facing=1,pose='idle',gait=0){
  const coats=['#fff0e6','#fcfaf2','#f5b65f','#f28a49','#344b72'],coat=coats[id],dark='#22243d';
- g.save();g.imageSmoothingEnabled=false;g.translate(Math.round(x+8*scale),Math.round(y+22*scale));g.scale(facing<0?-scale:scale,scale);
+ g.save();g.imageSmoothingEnabled=false;g.translate(Math.round(x+8*scale),Math.round(y+22*scale));const spriteFacing=(id===2||id===3)?-facing:facing;g.scale(spriteFacing<0?-scale:scale,scale);
  const bob=pose==='walk'?Math.abs(walk)*.6:0;g.translate(0,-bob);
  const box=(x,y,w,h,c)=>{g.fillStyle=c;g.fillRect(x,y,w,h)};
  // Tail, feet and rounded pixel body.
